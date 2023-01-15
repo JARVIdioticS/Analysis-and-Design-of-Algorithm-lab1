@@ -1,0 +1,39 @@
+//64050699 สรวิศ วงศ์ษา
+import java.util.Scanner;
+public class Main {
+
+    public static void main(String[] args) {
+        
+        System.out.println("This is quadratic equation calculator. As the form of 'AX^2 + BX + C'");
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Please enter A :");
+        Double a = sc.nextDouble();
+        System.out.print("Please enter B :");
+        Double b = sc.nextDouble();
+        System.out.print("Please enter C :");
+        Double c = sc.nextDouble();
+        sc.close();
+
+        if (a == 0) {
+            if (b == 0){
+                System.out.print("Unable to specify an answer");
+                return ;
+            }
+            System.out.printf("\nThe answer of this equation is : %.2f" , c/-b);
+            return ;
+        }
+        if (b*b - 4*a*c < 0) {
+            Double temp = 4*a*c - b*b;
+            System.out.println("\nThe answer of this equation is :");
+            System.out.printf("-%.2f/%.2f + (%.2f/%.2f)i and ", b, a, Math.sqrt(temp), a);
+            System.out.printf("-%.2f/%.2f - (%.2f/%.2f)i\n", b, a, Math.sqrt(temp), a);
+            System.out.printf("\nThe final answer is :\n-%.2f + %.2fi and -%.2f - %.2fi"
+            , b/a, Math.sqrt(temp)/a, b/a, Math.sqrt(temp)/a);
+            return ;
+        }
+        System.out.printf("\nThe answer of this equation is :\n%.2f and %.2f"
+        , (-b + Math.sqrt(b*b - 4*a*c))/(2*a), (-b - Math.sqrt(b*b - 4*a*c))/(2*a));
+        return ;
+    }
+}
